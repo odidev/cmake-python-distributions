@@ -38,10 +38,6 @@ before_install:
 
 install:
   - ci install
-  - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
-      python setup.py bdist_wheel;
-      ls dist;
-    fi
 
 script:
   - ci test
