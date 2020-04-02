@@ -21,6 +21,7 @@ matrix:
         
     - os: linux
       arch: arm64
+      dist: bionic
       sudo: required
       env:
         - PYTHON_VERSION=3.7.4
@@ -42,8 +43,6 @@ install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        pip install scikit-build;
        sudo apt-get install libssl-dev;
-       wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && tar -xf cmake-3.16.5.tar.gz;
-       cd cmake-3.16.5 && ./configure && make && sudo make install;
        python setup.py bdist_wheel;
        ls dist/ ;
     else
