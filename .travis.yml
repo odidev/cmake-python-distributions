@@ -21,6 +21,7 @@ matrix:
         
     - os: linux
       arch: arm64
+      sudo: required
       env:
         - PYTHON_VERSION=3.7.4
 
@@ -38,7 +39,7 @@ before_install:
   - ci_addons --install ../addons
 
 install:
-  - ci install
+  - sudo ci install
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        python setup.py bdist_wheel;
        ls dist/;
