@@ -43,7 +43,7 @@ install:
        pip install scikit-build;
        sudo apt-get install libssl-dev;
        wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && tar -xf cmake-3.16.5.tar.gz;
-       cd cmake-3.16.5 && ./configure && make && make install;
+       cd cmake-3.16.5 && ./configure && make && sudo make install;
        python setup.py bdist_wheel;
        ls dist/ ;
     else
