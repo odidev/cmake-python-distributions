@@ -42,7 +42,7 @@ before_install:
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        pip install scikit-build;
-       sudo apt-get install libssl-dev;
+       sudo apt-get install libssl-dev cmake;
        python setup.py bdist_wheel;
        ls dist/ ;
     else
