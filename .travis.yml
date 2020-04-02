@@ -36,7 +36,7 @@ before_install:
   - python scripts/ssl-check.py
   - python -m pip install --disable-pip-version-check --upgrade pip
   - pip install -U scikit-ci scikit-ci-addons 
-  - sudo pip install -U cryptography
+  - sudo pip install -r requirements-dev.txt
   - ci_addons --install ../addons
 
 install:
