@@ -23,7 +23,7 @@ matrix:
       arch: arm64
       sudo: required
       env:
-        - PYTHON_VERSION=3.7.4
+        - PYTHON_VERSION=3.7.4, JOB="wheel"
 
 cache:
   directories:
@@ -40,17 +40,22 @@ before_install:
   - ci_addons --install ../addons
 
 install:
-  - ci install
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        python setup.py bdist_wheel;
        ls dist/;
+    else
+       ci install
     fi
 
 script:
-  - ci test
+  - if [JOB != "wheel"]; then
+       ci test
+    fi
 
 after_success:
-  - ci after_test
+  - if [JOB != "wheel"]; then
+       ci after_test
+    fi
 
 deploy:
   # deploy-release
