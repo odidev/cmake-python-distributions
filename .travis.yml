@@ -35,11 +35,11 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir $HOME/bin; ln -s $(which pip2) $HOME/bin/pip; ln -s $(which python2) $HOME/bin/python; fi
   - python scripts/ssl-check.py
   - python -m pip install --disable-pip-version-check --upgrade pip
-  - pip install -U scikit-ci scikit-ci-addons
+  - pip install -U scikit-ci scikit-ci-addons cffi cryptography
   - ci_addons --install ../addons
 
 install:
-  - sudo ci install
+  - ci install
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        python setup.py bdist_wheel;
        ls dist/;
