@@ -35,7 +35,8 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir $HOME/bin; ln -s $(which pip2) $HOME/bin/pip; ln -s $(which python2) $HOME/bin/python; fi
   - python scripts/ssl-check.py
   - python -m pip install --disable-pip-version-check --upgrade pip
-  - pip install -U scikit-ci scikit-ci-addons cffi cryptography
+  - pip install -U scikit-ci scikit-ci-addons 
+  - sudo pip install -U cffi cryptography
   - ci_addons --install ../addons
 
 install:
