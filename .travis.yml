@@ -23,7 +23,7 @@ matrix:
       arch: arm64
       sudo: required
       env:
-        - PYTHON_VERSION=3.7.4, JOB="wheel"
+        - PYTHON_VERSION=3.7.4
 
 cache:
   directories:
@@ -40,7 +40,6 @@ before_install:
 
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
-       sudo pip install -r requirements-dev.txt
        pip install scikit-build;
        sudo apt-get install libssl-dev;
        python setup.py bdist_wheel;
@@ -50,12 +49,12 @@ install:
     fi
 
 script:
-  - if [JOB != "wheel"]; then
+  - if [ "${TRAVIS_CPU_ARCH}" != "arm64" ]; then
        ci test;
     fi
 
 after_success:
-  - if [JOB != "wheel"]; then
+  - if [ "${TRAVIS_CPU_ARCH}" != "arm64" ]; then
        ci after_test;
     fi
 
