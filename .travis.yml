@@ -41,7 +41,9 @@ before_install:
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        pip install scikit-build;
-       sudo apt-get install libssl-dev cmake;
+       sudo apt-get install libssl-dev;
+       wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && tar -xf cmake-3.16.5.tar.gz;
+       cd cmake-3.16.5 && ./configure && make && make install;
        python setup.py bdist_wheel;
        ls dist/ ;
     else
