@@ -62,7 +62,7 @@ before_deploy:
   - git config --local user.name "odidev"
   - git config --local user.email "odidev@puresoftware.com"
   - export TRAVIS_TAG=${aarch64-python-wheels:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag aarch64-python-wheels
+  - git tag aarch64-python-wheels #tag
 
 deploy:
   - provider: releases
