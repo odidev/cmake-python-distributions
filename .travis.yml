@@ -62,7 +62,7 @@ before_deploy:
   - git config --local user.name "odidev"
   - git config --local user.email "odidev@puresoftware.com"
   - export TRAVIS_TAG=${aarch64-python-wheels:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag $TRAVIS_TAG
+  - git tag aarch64-python-wheels
 
 deploy:
   - provider: releases
@@ -71,4 +71,7 @@ deploy:
   - file: dist/cmake-3.16.3.post22+g8c1c7dd-cp36-cp36m-linux_aarch64.whl
   - skip_cleanup: true
   - on:
+      branches:    # ← new!
+        only:      # ← new!
+          - arm64_wheel
       tags: true
