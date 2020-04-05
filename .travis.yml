@@ -42,7 +42,6 @@ before_install:
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        pip install scikit-build;
-       sudo apt-get install libssl-dev cmake;
        python setup.py bdist_wheel;
        ls dist/ ;
     else
@@ -61,8 +60,10 @@ after_success:
 before_deploy:
   - git config --local user.name "odidev"
   - git config --local user.email "odidev@puresoftware.com"
-  - export TRAVIS_TAG=${aarch64-python-wheels:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-  - git tag aarch64-python-wheels #tag
+  - export GIT_TAG=aarch64_wheel-0.1.$TRAVIS_BUILD_NUMBER
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+  - git push -q https://github.com/odidev/cmake-python-distributions --tags
+  - ls -R
 
 deploy:
   - provider: releases
