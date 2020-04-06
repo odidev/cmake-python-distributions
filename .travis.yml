@@ -25,14 +25,6 @@ matrix:
       sudo: required
       env:
         - PYTHON_VERSION=3.7.4
-      before_deploy:
-        - git config --global user.name "odidev"
-        - git config --global user.email "odidev@puresoftware.com"
-        - export GIT_TAG=aarch64_wheel-0.1.$TRAVIS_BUILD_NUMBER
-        - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-        - git remote set-url origin git@github.com:odidev/cmake-python-distributions.git > /dev/null 2>&1
-        - git push -q --tags
-        - ls -R
 
       deploy:
         - provider: releases
