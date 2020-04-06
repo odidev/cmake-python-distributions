@@ -30,7 +30,7 @@ matrix:
         - git config --local user.email "odidev@puresoftware.com"
         - export GIT_TAG=aarch64_wheel-0.1.$TRAVIS_BUILD_NUMBER
         - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-        - git push -q https://github.com/odidev/cmake-python-distributions --tags
+        - git push -q --tags
         - ls -R
 
       deploy:
