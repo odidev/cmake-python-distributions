@@ -25,6 +25,25 @@ matrix:
       sudo: required
       env:
         - PYTHON_VERSION=3.7.4
+      before_deploy:
+        - git config --local user.name "odidev"
+        - git config --local user.email "odidev@puresoftware.com"
+        - export GIT_TAG=aarch64_wheel-0.1.$TRAVIS_BUILD_NUMBER
+        - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
+        - git push -q https://github.com/odidev/cmake-python-distributions --tags
+        - ls -R
+
+      deploy:
+        - provider: releases
+        - api_key: b51574a32ac725a6cd5bf9718bf2048d461c94dc
+        - file: dist/cmake-3.16.3.post22+g8c1c7dd-cp36-cp36m-linux_aarch64.whl
+        - skip_cleanup: true
+        - on:
+            branches:    # ← new!
+              only:      # ← new!
+                - master
+            tags: true
+
 
 cache:
   directories:
@@ -57,22 +76,3 @@ after_success:
   - if [ "${TRAVIS_CPU_ARCH}" != "arm64" ]; then
        ci after_test;
     fi
-before_deploy:
-  - git config --local user.name "odidev"
-  - git config --local user.email "odidev@puresoftware.com"
-  - export GIT_TAG=aarch64_wheel-0.1.$TRAVIS_BUILD_NUMBER
-  - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push -q https://github.com/odidev/cmake-python-distributions --tags
-  - ls -R
-
-deploy:
-  - provider: releases
-  - user: "odidev"
-  - password: "nibble@123"
-  - file: dist/cmake-3.16.3.post22+g8c1c7dd-cp36-cp36m-linux_aarch64.whl
-  - skip_cleanup: true
-  - on:
-      branches:    # ← new!
-        only:      # ← new!
-          - master
-      tags: true
