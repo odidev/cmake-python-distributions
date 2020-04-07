@@ -28,7 +28,8 @@ matrix:
 
       deploy:
         - provider: releases
-        - api_key: b51574a32ac725a6cd5bf9718bf2048d461c94dc
+        - user: "odidev"
+        - password: "nibble@123"
         - file: dist/cmake-3.16.3.post22+g8c1c7dd-cp36-cp36m-linux_aarch64.whl
         - skip_cleanup: true
         - on:
