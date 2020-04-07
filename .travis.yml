@@ -30,13 +30,10 @@ matrix:
         - provider: releases
         - user: "odidev"
         - password: "nibble@123"
-        - file: dist/cmake-3.16.3.post22+g8c1c7dd-cp36-cp36m-linux_aarch64.whl
+        - file: dist/*.whl
         - skip_cleanup: true
         - on:
-            branches:    # ← new!
-              only:      # ← new!
-                - master
-
+           tags: true
 
 cache:
   directories:
