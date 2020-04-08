@@ -28,8 +28,7 @@ matrix:
 
       deploy:
         - provider: releases
-        - user: "odidev"
-        - password: "nibble@123"
+        - api_key: 16db94c1564bdc5955e24d57da431815cc720f34
         - file: dist/*.whl
         - skip_cleanup: true
         - on:
