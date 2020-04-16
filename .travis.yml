@@ -39,7 +39,7 @@ matrix:
         - api_key: 
             secure: U2FS/+pvbrtWwSvHpL/fbz48HyexWmV8c1x6YbgFyilElSkHv/OBmD/4p3vOSm4LVREpysOeT45zd+WgoH48COt+TFzOPxYEBGA5SDZtTFP2dResSzvxyxSi983vPIXFPt+o8c5uTjFzXqjmvAs318AqUImzEUK3f2/7XHGckbMdV3OLBz63SYM7A0NnBYefYec3sMD1UAMJte+lGRyQBdYVGViXHDECgOv3L3iNzrw7kAS1IzqgUPaCA898ZSiu+yTsQaX75e8awGrRrZdBEJs1f+j2KvwqIJhbTBwlWxBph6wy/0rWW5zxE4dDu9DT6hcEBc2OPIqDy0Aqss1oWfimnb9cyKnFX31fGVrrty+w+slHhabX5WQu4A0YAvrfD37yXb8Ky9csw3ZI/8o/llxlmuXTqnuGxg4oMxzSqniVvdC63/5SsUTPMg4t/c9uIxgKgO2U3t7YlA3YfdsdRAOMOKhCY82vTPdZOjJXqIIS/9GHio4Q3UgUa5wWlnxiW/l/eyne7cBRHlbCV9OGRFJYxI5nRttM6HcX8EuU3Pqle7P4akD2wSpEumM/wXud/eL5JBdD7gnlHCQ0tjglwUqTPUzkKIwJtF5u1imj7x/x6dqnJGYtIMNDGKDXnKnt9KmYLk2X0NolJk27qp0u9wcTGoHUh4WiHgTBOUTGgGg=
         - file_glob: true
-        - file: dist/*.whl
+        - file: ./dist/*.whl
         - skip_cleanup: true
         - on:
            repo: odidev/cmake-python-distributions
@@ -60,8 +60,6 @@ before_install:
 install:
   - if [ "${TRAVIS_CPU_ARCH}" == "arm64" ]; then
        pip install scikit-build;
-       python setup.py bdist_wheel;
-       ls dist/ ;
     else
        ci install;
     fi
