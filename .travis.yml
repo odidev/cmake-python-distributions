@@ -31,7 +31,7 @@ matrix:
         - git config --global user.name "odidev"
         - git config --global user.email "odidev@puresoftware.com"
         - git config --global --list
-        - export TRAVIS_TAG="aarch64-python-wheels"
+        - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
         - git tag $TRAVIS_TAG
         - python setup.py bdist_wheel
 
