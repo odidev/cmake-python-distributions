@@ -32,7 +32,7 @@ setup_requires = pytest_runner
 setup(
     name='cmake_odidev',
 
-    version=versioneer.get_version(),
+    version='3.16.4',
     cmdclass=versioneer.get_cmdclass(),
 
     author='Jean-Christophe Fillion-Robin',
