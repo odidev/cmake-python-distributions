@@ -26,15 +26,6 @@ matrix:
       python: "3.7"
       env:
         - PYTHON_VERSION=3.7.4
-
-      before_deploy:
-        - git config --global user.name "odidev"
-        - git config --global user.email "odidev@puresoftware.com"
-        - git config --global --list
-        - export TRAVIS_TAG=aarch64-python-wheels-1.0
-        - git tag $TRAVIS_TAG
-        - python setup.py bdist_wheel
-
       deploy:
         provider: pypi
         user: mkp2020
