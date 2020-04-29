@@ -4,6 +4,8 @@ branches:
   - /^[0-9]+(\.[0-9]+)*(\.post[0-9]+)?$/
   - arm64_wheel
 
+cache: false
+
 language: python
 
 matrix:
@@ -26,6 +28,12 @@ matrix:
       python: "3.7"
       env:
         - PYTHON_VERSION=3.7.4
+
+      before_deploy:
+        - git config --global user.name "odidev"
+        - git config --global user.email "odidev@puresoftware.com"
+        - git config --global --list
+
       deploy:
         provider: pypi
         user: mkp2020
