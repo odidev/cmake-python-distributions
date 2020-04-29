@@ -25,7 +25,7 @@ matrix:
       sudo: required
       python: "3.7"
       env:
-        - PYTHON_VERSION=3.7.4 PIP_NO_CACHE_DIR=on
+        - PYTHON_VERSION=3.7.4 PIP_NO_CACHE_DIR=on 
 
       before_deploy:
         - git config --global user.name "odidev"
