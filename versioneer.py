@@ -1517,7 +1517,7 @@ def get_cmdclass():
             print(" date: %s" % vers.get("date"))
             if vers["error"]:
                 print(" error: %s" % vers["error"])
-    cmds["version"] = cmd_version
+    cmds["version"] = '3.16.4'
 
     # we override "build_py" in both distutils and setuptools
     #
