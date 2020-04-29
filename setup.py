@@ -30,7 +30,7 @@ pytest_runner = (['pytest-runner>=2.0,<3dev']
 setup_requires = pytest_runner
 
 setup(
-    name='cmake',
+    name='cmake_odidev',
 
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),

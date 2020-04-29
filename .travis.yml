@@ -36,14 +36,14 @@ matrix:
         - python setup.py bdist_wheel
 
       deploy:
-        provider: releases
-        api_key: 
-          secure: U2FS/+pvbrtWwSvHpL/fbz48HyexWmV8c1x6YbgFyilElSkHv/OBmD/4p3vOSm4LVREpysOeT45zd+WgoH48COt+TFzOPxYEBGA5SDZtTFP2dResSzvxyxSi983vPIXFPt+o8c5uTjFzXqjmvAs318AqUImzEUK3f2/7XHGckbMdV3OLBz63SYM7A0NnBYefYec3sMD1UAMJte+lGRyQBdYVGViXHDECgOv3L3iNzrw7kAS1IzqgUPaCA898ZSiu+yTsQaX75e8awGrRrZdBEJs1f+j2KvwqIJhbTBwlWxBph6wy/0rWW5zxE4dDu9DT6hcEBc2OPIqDy0Aqss1oWfimnb9cyKnFX31fGVrrty+w+slHhabX5WQu4A0YAvrfD37yXb8Ky9csw3ZI/8o/llxlmuXTqnuGxg4oMxzSqniVvdC63/5SsUTPMg4t/c9uIxgKgO2U3t7YlA3YfdsdRAOMOKhCY82vTPdZOjJXqIIS/9GHio4Q3UgUa5wWlnxiW/l/eyne7cBRHlbCV9OGRFJYxI5nRttM6HcX8EuU3Pqle7P4akD2wSpEumM/wXud/eL5JBdD7gnlHCQ0tjglwUqTPUzkKIwJtF5u1imj7x/x6dqnJGYtIMNDGKDXnKnt9KmYLk2X0NolJk27qp0u9wcTGoHUh4WiHgTBOUTGgGg=
-        file_glob: true
-        file: ./dist/*.whl
-        skip_cleanup: true
+        provider: pypi
+        user: mkp2020
+        password:
+          secure: L1etBFaD0vbtiiaiSOw6D8zu8MHKwdEbzEz1anR6Nj/7kyylx1joy8Jz5T83lRTfXRnWyk9Np++M21J/TQKzn49TyaaBECtabMlg/n/JIufzhA27vXCDnwe3S2ERl4Au9yg+RRof+FJDWb/HrCaVkxvOUKKz+19PEUs73gtPSw9fCZI/PUvS8SpXL8/ltlKWhKw80Hs9WAVJ30m5iNy6a3BzfrW75eUSCQZjbt7B849LUZCosifE+a4rsWGu9R0gfAdWkn+4QYBa7s273wO7uJDkK/Vg32LwMIuB+9kzP/C35c/PQkrPg6EFkV04m8inALKew1NenPmL5cOkzxAazkKnzymi9Fe7wcGOd/OQ/UUfRjRV1AZmAEe93DWW7EPxNNwrac5TSll9KDnNWRrdZNALcnDOxDpOGTJUvYKfCSiUyjT/GkFxkZYbQN5YnkTDbMZeI5Yomw2IhgefMp4Pa90rIYIti+zkDSODyXPAVAWn9mt8UoCo6pe7YFBWSjfCd1MjJAIKu6CCzVAzscge8iExyce77J76WCZUAaJnozzZUx4Gul9xbjNNUX9BxAZHYyLcMX3lrSWRS86qjp/HAfCfC6Hr6NwUttLSqFyg1rRB9+Di+GqVWh0MKP4ndNqVfSXSsVpaKMRM5v7tk2BzYoQoWBbgXU373KCUicHKHnY=
         on:
-           repo: odidev/cmake-python-distributions
+          repo: odidev/cmake-python-distributions
+        skip_cleanup: 'true'
+        distributions: sdist bdist_wheel --plat-name manylinux2014_aarch64
 
 cache:
   directories:
