@@ -32,7 +32,7 @@ setup_requires = pytest_runner
 setup(
     name='cmake_odidev',
 
-    version='3.16.4',
+    version='3.17.3',
     cmdclass=versioneer.get_cmdclass(),
 
     author='Jean-Christophe Fillion-Robin',
@@ -51,8 +51,8 @@ setup(
     url=r'http://cmake.org/',
     download_url=r'https://cmake.org/download',
 
-    description=r'CMake is an open-source, cross-platform family of '
-                r'tools designed to build, test and package software',
+    description=r'CMake-odidev is a test project and it is '
+                r'clone of CMake project',
 
     long_description=readme + '\n\n' + history,
 
