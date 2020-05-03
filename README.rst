@@ -2,11 +2,11 @@
 CMake Python Distributions
 ==========================
 
-1) I am working on a generatting aarch64 cmake wheel
-2) This project is where I am testing the things
-3) You must not use this project to grab numpy features
-4) I am expecting it to go away at some point in the future
-5) Please visit official cmake pypi page: `https://pypi.org/project/cmake/`_ to install cmake
+* I am working on a generatting aarch64 cmake wheel
+* This project is where I am testing the things
+* You must not use this project to grab numpy features
+* I am expecting it to go away at some point in the future
+* Please visit official cmake pypi page: https://pypi.org/project/cmake/ to install cmake
 
 
 License
