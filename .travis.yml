@@ -68,3 +68,6 @@ after_success:
   - if [ "${TRAVIS_CPU_ARCH}" != "arm64" ]; then
        ci after_test;
     fi
+
+notifications:
+  email: false
